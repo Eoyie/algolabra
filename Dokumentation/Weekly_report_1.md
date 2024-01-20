@@ -15,6 +15,9 @@ I do think I'll only properly learn about them once I start working on the proje
 ### What has been unclear or problematic? Please answer this question truthfully, as this is something the course assistant may be able to help with.
 I spent a lot of time being confused over NetBeans as I had never heard of it and it was just quickly mentioned in the GitHub tutorial (At least I didn't see it being mentioned anywhere else), which I almost didn't even read as I've made repositories before. 
 It just felt like it was some common knowledge that I should've known about as some other things I've used like unittests had links to their tutorials. I'm still very confused over it and chose to just ignore it as I wasn't really sure if I was really meant to use it or if it was just for Java?
+
+Also generally struggled with making the project specification as I wasn't sure if it was meant to be more official or if was I allowed to mention things I wasn't sure of. 
+I hope what I ended up going with is somewhat acceptable.
 ### What next?
 Hopefully start the actual project.
 
