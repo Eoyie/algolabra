@@ -1,4 +1,4 @@
-# algolabra - Dungeon Generator
+# algolabra - 2048 Game
 
 ## Dokumentation
 - [Project specification](Dokumentation/Project_specification.md)
