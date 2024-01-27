@@ -25,7 +25,7 @@ I had little bit of difficulty on understanding how much code I should have done
 I think the amount I've done is maybe a little less than was planned, but probably still enough to not effect points.
 
 ## What next?
-1. Change moving the tiles to actual needed methods (from my general research flipping and transposing.
+1. Change moving the tiles to actual needed methods (from my general research flipping, transposing, merging etc.)
 2. Add game stages.
 3. Maybe divide game and logic.
 4. (Tkinkter?)
