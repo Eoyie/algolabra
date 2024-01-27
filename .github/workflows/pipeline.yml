@@ -35,6 +35,10 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
+      - name: Run pylint
+        run: |
+          poetry run invoke pylint
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
