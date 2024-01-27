@@ -46,7 +46,7 @@ jobs:
 
       - name: Run pylint
         run: |
-          poetry run invoke coverage
+          poetry run invoke coverage-report
 
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v3
