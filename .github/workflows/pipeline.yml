@@ -44,9 +44,9 @@ jobs:
         run: |
           poetry run invoke pylint
 
-      - name: Run pylint
+      - name: Run pytest
         run: |
-          poetry run invoke coverage-report
+          poetry run pytest --cov-report=xml
 
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v3
