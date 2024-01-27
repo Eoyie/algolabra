@@ -6,14 +6,14 @@ class Game:
         self._game_grid = []
         self._new_grid()
         self.temporary_test_pos = (0,0)
-        
+
     def start(self, command = None):
         game_printer.print_start()
         self.add_game_tile_only_2s()
         self._run_game(command)
 
     def _new_grid(self):
-        for i in range(4):
+        for _ in range(4):
             self._game_grid.append([0]*4)
 
     def grid(self):
@@ -35,7 +35,7 @@ class Game:
             game_printer.print_grid(self._game_grid)
             if not command:
                 command = input("Select command: ")
-                
+
             if command == "w":
                 self.move_up()
                 command = None
