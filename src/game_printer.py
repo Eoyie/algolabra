@@ -4,7 +4,9 @@ def print_start():
     print("'w' : Up")
     print("'s' : Down")
     print("'a' : Left")
-    print("'d' : Right\n")
+    print("'d' : Right")
+    print("'q' : To quit the game")
+    
     
 def print_grid(game_grid):
     for row in game_grid:

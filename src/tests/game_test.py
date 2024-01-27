@@ -6,6 +6,6 @@ class TestGame(unittest.TestCase):
         self.game = Game()
         
     def test_create_grid(self):
-        grid = self.game.start()
+        grid = self.game.grid()
         
         self.assertEqual(grid,[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]])
