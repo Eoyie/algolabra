@@ -44,7 +44,16 @@ jobs:
         run: |
           poetry run invoke pylint
 
-      - name: Upload coverage reports to Codecov
+      - name: Run pylint
+        run: |
+          poetry run invoke coverage
+
+      - name: Upload coverage to codecov
         uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage1.xml,./coverage2.xml
+          flags: unittests
+          name: codecov-umbrella 
+          fail_ci_if_error: true
+          verbose: true
