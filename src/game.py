@@ -38,12 +38,16 @@ class Game:
                 
             if command == "w":
                 self.move_up()
+                command = None
             elif command == "s":
                 self.move_down()
+                command = None
             elif command == "a":
                 self.move_left()
+                command = None
             elif command == "d":
                 self.move_right()
+                command = None
             elif command == "q":
                 break
 
