@@ -9,3 +9,4 @@ def print_start():
 def print_grid(game_grid):
     for row in game_grid:
         print(row)
+    print("")

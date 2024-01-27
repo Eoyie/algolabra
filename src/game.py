@@ -7,12 +7,13 @@ class Game:
         
     def _start(self):
         game_printer.print_start()
+        self._add_game_tile_only_2s()
+        self._add_game_tile_only_2s()
         game_printer.print_grid(self._game_grid)
-        return self._game_grid
 
     def _new_grid(self):
-        self._game_grid.append([0]*4)
-        self._game_grid = self._game_grid*4
+        for i in range(4):
+            self._game_grid.append([0]*4)
         
     def grid(self):
         return self._game_grid
@@ -21,9 +22,9 @@ class Game:
         row = randint(0, 3)
         column = randint(0, 3)
  
-        while self._game_grid[row] != 0:
+        while self._game_grid[row][column] != 0:
             row = randint(0, 3)
             column = randint(0, 3)
-
+            
         self._game_grid[row][column] = 2
 
