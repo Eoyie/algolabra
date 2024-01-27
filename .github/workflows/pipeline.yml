@@ -35,6 +35,10 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
+      - name: Install dependencies
+        run: |
+          poetry install
+          
       - name: Run pylint
         run: |
           poetry run invoke pylint
