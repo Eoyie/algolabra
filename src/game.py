@@ -5,6 +5,7 @@ class Game:
         
     def start(self):
         print(self.game_grid)
+        return self.game_grid
 
     def new_grid(self):
         self.game_grid.append([0]*4)
