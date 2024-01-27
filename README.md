@@ -8,3 +8,4 @@
 ## Weekly reports
 
 - [Week 1](Dokumentation/Weekly_report_1.md)
+- [Week 2](Dokumentation/Weekly_report_2.md)
