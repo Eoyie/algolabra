@@ -2,6 +2,7 @@ import unittest
 from game import Game
 
 class TestGame(unittest.TestCase):
+    ''' Temporary tests for current game code '''
     def setUp(self):
         self.game = Game()
 
