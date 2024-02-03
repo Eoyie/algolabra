@@ -15,21 +15,21 @@ class TestGameManager(unittest.TestCase):
         self.assertEqual(score, 0)
 
     def test_move_up(self):
-        self.game_manager.move("UP")
+        self.game.take_input("w")
         grid = self.game_manager.grid()
         possible_sums = [4, 6]
 
         self.assertIn(sum(grid[0]), possible_sums)
 
     def test_move_down(self):
-        self.game_manager.move("DOWN")
+        self.game.take_input("s")
         grid = self.game_manager.grid()
         possible_sums = [4, 6]
 
         self.assertIn(sum(grid[3]), possible_sums)
 
     def test_move_left(self):
-        self.game_manager.move("LEFT")
+        self.game.take_input("a")
         grid = self.game_manager.grid()
         possible_sums = [4, 6]
 
@@ -40,7 +40,7 @@ class TestGameManager(unittest.TestCase):
         self.assertIn(left_column_sum, possible_sums)
 
     def test_move_right(self):
-        self.game_manager.move("RIGHT")
+        self.game.take_input("d")
         grid = self.game_manager.grid()
         possible_sums = [4, 6]
 
