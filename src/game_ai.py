@@ -9,10 +9,6 @@ class GameExpectiminimax:
                         [2**5, 2**6, 2**7, 2**8],
                         [2**12, 2**11,2**10,2**9],
                         [2**13,2**14,2**15,2**16]]
-        
-    #def expectminimax(self, depth, direction):
-    #    if depth == 0:
-    #        pass
 
     def next_move(self, depth):
         best_move = "RIGHT"
@@ -23,7 +19,7 @@ class GameExpectiminimax:
             score, moved = game_copy.move(direction)
             if not moved:
                 continue
-            
+
             score, move = self.expectiminimax(game_copy, depth, direction)
             if score >= best_score:
                 best_score = score
@@ -44,17 +40,18 @@ class GameExpectiminimax:
                 score, moved = game_copy_2.move(direction)
                 if moved:
                     result = self.expectiminimax(game_copy_2, depth-0.5, direction)[0]
-                    if result > score: 
+                    if result > score:
                         score = result
-    
+
         elif depth == int(depth):
             score = 0
             free_tiles = game_copy.get_free_tiles()
             for free_tile in free_tiles:
                 game_copy.add_game_tile_only_2s(free_tile)
-                score += 1.0/len(free_tiles)*self.expectiminimax(game_copy, depth - 0.5, direction)[0]
+                score += 1.0/len(free_tiles)*self.expectiminimax(game_copy, \
+                        depth - 0.5, direction)[0]
                 game_copy.add_game_tile_only_2s(free_tile)
-                
+
         return (score, direction)
 
     def heuristic_evaluation(self, game_copy):

@@ -62,7 +62,7 @@ class GameManager:
             for x in range(xmin, xmax, -1 if direction == "RIGHT" else 1):
                 if self._game_grid[y][x] == 0:
                     continue
-                
+
                 x_next = x + xy[1]
                 y_next = y + xy[0]
 

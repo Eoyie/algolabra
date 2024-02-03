@@ -35,7 +35,7 @@ class PlayGame:
     def take_input(self, command):
         if not command:
             command = input("Select command: ")
-            
+
         if command == "w":
             self.game_manager.move("UP")
             command = None
@@ -52,4 +52,3 @@ class PlayGame:
             self.stage = False
         elif command == "enable":
             self.ai_enabled = True
-
