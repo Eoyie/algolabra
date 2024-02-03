@@ -11,8 +11,7 @@ class PlayGame:
             Temporary:
                 given command because of tests'''
         game_printer.print_start()
-        self.game_manager.add_game_tile_only_2s()
-        self._un_game(command)
+        self.run_game(command)
 
     def run_game(self, command = None):
         ''' Runs game on loop and asks for input.
@@ -26,16 +25,16 @@ class PlayGame:
                 command = input("Select command: ")
 
             if command == "w":
-                self.game_manager.move_up()
+                self.game_manager.move("UP")
                 command = None
             elif command == "s":
-                self.game_manager.move_down()
+                self.game_manager.move("DOWN")
                 command = None
             elif command == "a":
-                self.game_manager.move_left()
+                self.game_manager.move("LEFT")
                 command = None
             elif command == "d":
-                self.game_manager.move_right()
+                self.game_manager.move("RIGHT")
                 command = None
             elif command == "q":
                 break
