@@ -3,8 +3,9 @@ from random import randint
 class GameManager:
     def __init__(self):
         self._game_grid = []
+        self.score = 0
         self.new_grid()
-        
+
     def new_grid(self):
         ''' Creates blank grid '''
         for _ in range(4):
@@ -16,20 +17,24 @@ class GameManager:
         ''' Returns game grid '''
         return self._game_grid
 
-    def add_game_tile_only_2s(self):
+    def add_game_tile_only_2s(self, position = None):
         ''' Temporary:
                 Adds randomly a single 2 to anywhere that's a free space.
                 Will be changed when more game logic is created.'''
-        row = randint(0, 3)
-        column = randint(0, 3)
-
-        while self._game_grid[row][column] != 0:
+        if not position:
             row = randint(0, 3)
             column = randint(0, 3)
 
-        self._game_grid[row][column] = 2
+            while self._game_grid[row][column] != 0:
+                row = randint(0, 3)
+                column = randint(0, 3)
+
+            self._game_grid[row][column] = 2
+        else:
+            self._game_grid[position[0]][position[1]] = 2
 
     def move(self, direction):
+        score = 0
         xmin = 0
         xmax = 4
         ymin = 0
@@ -78,6 +83,7 @@ class GameManager:
 
                     moved = True
                     collision_grid[y_next][x_next] = True
+                    score += self._game_grid[y_next][x_next]
 
                     self._game_grid[y_next][x_next] += self._game_grid[y][x]
                     self._game_grid[y][x] = 0
@@ -96,9 +102,21 @@ class GameManager:
                     temp = self._game_grid[y][x]
                     self._game_grid[y][x] = 0
                     self._game_grid[y_next][x_next] = temp
+
+        self.score += score
         if moved:
             self.add_game_tile_only_2s()
-        return moved
+        return score, moved
 
     def get_game_stage(self):
         pass
+
+    def get_free_tiles(self):
+        free_tiles = []
+
+        for i in range(4):
+            for j in range(4):
+                if self._game_grid[i][j] == 0:
+                    free_tiles.append((i,j))
+
+        return free_tiles
