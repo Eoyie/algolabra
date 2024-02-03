@@ -7,8 +7,8 @@ class GameExpectiminimax:
         self.directions = ["UP", "DOWN", "LEFT", "RIGHT"]
         self.max_grid =[[2**4, 2**3, 2**2, 2],
                         [2**5, 2**6, 2**7, 2**8],
-                        [2**12, 2**11,2**10,2**9],
-                        [2**13,2**14,2**15,2**16]]
+                        [2**12, 2**11, 2**10, 2**9],
+                        [2**13, 2**14, 2**15, 2**16]]
 
     def next_move(self, depth):
         best_move = "RIGHT"
