@@ -77,8 +77,8 @@ class GameManager:
                 x_next = x + xy[1]
                 y_next = y + xy[0]
 
-                while x_next >= 0 and x_next < 4 and y_next >= 0 \
-                    and y_next < 4 and self._game_grid[y_next][x_next] == 0:
+                while 0 <= x_next < 4 and 0 <=  y_next < 4 and \
+                    self._game_grid[y_next][x_next] == 0:
                     x_next += xy[1]
                     y_next += xy[0]
 
@@ -127,8 +127,7 @@ class GameManager:
         return score, moved
 
     def get_game_stage(self):
-        ''' todo: need to first add tkinkter or pygame ui'''
-        pass
+        pass # Need to first add tkinkter or pygame ui
 
     def get_free_tiles(self):
         ''' Returns all tiles that are currently free.'''

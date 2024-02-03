@@ -3,7 +3,7 @@ from game_manager import GameManager
 from game_ai import GameExpectiminimax
 
 class PlayGame:
-    def __init__(self, game_manager = GameManager):
+    def __init__(self):
         self.game_manager = GameManager()
         self.game_ai = GameExpectiminimax(self.game_manager)
         self.ai_enabled = False

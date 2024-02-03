@@ -1,4 +1,3 @@
-from game_manager import GameManager
 import copy
 
 class GameExpectiminimax:
@@ -56,12 +55,12 @@ class GameExpectiminimax:
         # Starts depth search, with new game copy.
         if depth != int(depth):
             score = float('-inf')
-            for direction in self.directions:
+            for direction_2 in self.directions:
                 game_copy_2 = copy.deepcopy(game_copy)
-                score, moved = game_copy_2.move(direction)
+                score, moved = game_copy_2.move(direction_2)
                 if moved:
                     result = self.expectiminimax(game_copy_2, depth - 0.5, \
-                                                direction)[0]
+                                                direction_2)[0]
                     if result > score:
                         score = result
 
