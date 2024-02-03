@@ -28,4 +28,4 @@ Well if I'm allowed to continue with this and don't have to redo stuff without t
 - Testing and testing document in a better and more final shape!!
 
 ## Time spent
-9 hours
+9,5 hours
