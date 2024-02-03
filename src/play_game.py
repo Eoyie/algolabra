@@ -8,6 +8,7 @@ class PlayGame:
         self.game_ai = GameExpectiminimax(self.game_manager)
         self.ai_enabled = False
         self.stage = True
+        self.score = 0
 
     def start(self, command = None):
         ''' Starts up the game
@@ -18,11 +19,10 @@ class PlayGame:
         self.run_game(command)
 
     def run_game(self, command = None):
-        ''' Runs game on loop and asks for input.
-            Currently only moves one 2 around grid.
+        ''' Runs game on loop.
         
             Temporary:
-                if not command check for a test. '''
+                If not command check for a test. '''
         while self.stage:
             game_printer.print_grid(self.game_manager.grid())
             if self.ai_enabled:
@@ -33,6 +33,10 @@ class PlayGame:
 
 
     def take_input(self, command):
+        ''' Takes the inputs
+        
+            Temporary:
+                Will be changed with new ui.'''
         if not command:
             command = input("Select command: ")
 
@@ -52,3 +56,8 @@ class PlayGame:
             self.stage = False
         elif command == "enable":
             self.ai_enabled = True
+
+    def game_score(self):
+        ''' Temporary for tests, will involve printing in the future.'''
+        self.score = self.game_manager.score
+        return self.score

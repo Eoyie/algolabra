@@ -7,20 +7,24 @@ class GameManager:
         self.new_grid()
 
     def new_grid(self):
-        ''' Creates blank grid '''
+        ''' Creates starting grid for game. '''
         for _ in range(4):
             self._game_grid.append([0]*4)
         self.add_game_tile_only_2s()
         self.add_game_tile_only_2s()
 
     def grid(self):
-        ''' Returns game grid '''
+        ''' Returns game grid. '''
         return self._game_grid
 
     def add_game_tile_only_2s(self, position = None):
-        ''' Temporary:
-                Adds randomly a single 2 to anywhere that's a free space.
-                Will be changed when more game logic is created.'''
+        ''' Adds randomly a single 2 to anywhere that's a free space 
+            or to a given position.
+            
+            Args:
+                position: Possible given position where 
+                the new tile will be placed.
+        '''
         if not position:
             row = randint(0, 3)
             column = randint(0, 3)
@@ -34,6 +38,13 @@ class GameManager:
             self._game_grid[position[0]][position[1]] = 2
 
     def move(self, direction):
+        ''' Moves tiles on the game grid by given direction.
+        
+            Args:
+                direction: Direction the tiles will be merged/moved based on.
+            Returns: 
+                Gotten score and information on if anything was moved.
+        '''
         score = 0
         xmin = 0
         xmax = 4
@@ -71,6 +82,7 @@ class GameManager:
                     x_next += xy[1]
                     y_next += xy[0]
 
+                # If out of bounds will be moved back.
                 if x_next < 0 or x_next >= 4 or y_next < 0 or y_next >= 4:
                     x_next -= xy[1]
                     y_next -= xy[0]
@@ -78,6 +90,7 @@ class GameManager:
                 if x_next == x and y_next == y:
                     continue
 
+                # Equal to next tile, will be combined
                 if self._game_grid[y][x] == self._game_grid[y_next][x_next] \
                     and not collision_grid[y_next][x_next]:
 
@@ -87,11 +100,15 @@ class GameManager:
 
                     self._game_grid[y_next][x_next] += self._game_grid[y][x]
                     self._game_grid[y][x] = 0
+
+                # Next tile is empty, will be moved to empty tile
                 elif self._game_grid[y_next][x_next] == 0:
 
                     moved = True
                     self._game_grid[y_next][x_next] = self._game_grid[y][x]
                     self._game_grid[y][x] = 0
+
+                # If neihter move back
                 else:
                     y_next -= xy[0]
                     x_next -= xy[1]
@@ -104,14 +121,17 @@ class GameManager:
                     self._game_grid[y_next][x_next] = temp
 
         self.score += score
+
         if moved:
             self.add_game_tile_only_2s()
         return score, moved
 
     def get_game_stage(self):
+        ''' todo: need to first add tkinkter or pygame ui'''
         pass
 
     def get_free_tiles(self):
+        ''' Returns all tiles that are currently free.'''
         free_tiles = []
 
         for i in range(4):

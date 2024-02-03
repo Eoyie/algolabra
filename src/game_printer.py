@@ -8,6 +8,8 @@ def print_start():
     print("'a' : Left")
     print("'d' : Right")
     print("'q' : To quit the game")
+    print("'enable' : To enable the ai (Only stopped with a KeyboardInterrupt)")
+
 
 def print_grid(game_grid):
     ''' Prints grid '''
