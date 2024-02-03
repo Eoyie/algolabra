@@ -1,54 +1,48 @@
 import unittest
-from game import Game
+from game_manager import GameManager
 
-class TestGame(unittest.TestCase):
+class TestGameManager(unittest.TestCase):
     ''' Temporary tests for current game code '''
     def setUp(self):
-        self.game = Game()
+        self.game = GameManager()
 
-    def test_create_grid_blank(self):
-        grid = self.game.grid()
+    def test_start(self):
+        score = self.game.score
 
-        self.assertEqual(grid,[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]])
-
-    def test_starting_grid(self):
-        self.game.start('q')
-        start_grid = self.game.grid()
-
-        self.assertEqual(sum(map(sum, start_grid)),2)
+        self.assertEqual(score, 0)
 
     def test_move_up(self):
-        self.game.add_game_tile_only_2s()
-        self.game.move_up()
+        self.game.move("UP")
         grid = self.game.grid()
+        possible_sums = [4, 6]
 
-        self.assertEqual(sum(grid[0]), 2)
+        self.assertIn(sum(grid[0]), possible_sums)
 
     def test_move_down(self):
-        self.game.add_game_tile_only_2s()
-        self.game.move_down()
+        self.game.move("DOWN")
         grid = self.game.grid()
+        possible_sums = [4, 6]
 
-        self.assertEqual(sum(grid[3]), 2)
+        self.assertIn(sum(grid[3]), possible_sums)
 
     def test_move_left(self):
-        self.game.add_game_tile_only_2s()
-        self.game.move_left()
+        self.game.move("LEFT")
         grid = self.game.grid()
+        possible_sums = [4, 6]
 
         left_column_sum = 0
         for row in grid:
             left_column_sum += row[0]
 
-        self.assertEqual(left_column_sum, 2)
+        self.assertIn(left_column_sum, possible_sums)
 
     def test_move_right(self):
-        self.game.add_game_tile_only_2s()
-        self.game.move_right()
+        self.game.move("RIGHT")
         grid = self.game.grid()
+        possible_sums = [4, 6]
 
         right_column_sum = 0
         for row in grid:
             right_column_sum += row[3]
 
-        self.assertEqual(right_column_sum, 2)
+        self.assertIn(right_column_sum, possible_sums)
