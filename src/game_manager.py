@@ -100,15 +100,5 @@ class GameManager:
             self.add_game_tile_only_2s()
         return moved
 
-    def get_free_tiles(self):
-        free_tiles = []
-
-        for i in range(4):
-            for j in range(4):
-                if self._game_grid[i][j] == 0:
-                    free_tiles.append((i,j))
-
-        return free_tiles
-
     def get_game_stage(self):
         pass
