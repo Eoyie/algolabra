@@ -4,7 +4,6 @@ from game_manager import GameManager
 class PlayGame:
     def __init__(self):
         self.game_manager = GameManager()
-        self.start()
 
     def start(self, command = None):
         ''' Starts up the game
@@ -12,7 +11,7 @@ class PlayGame:
             Temporary:
                 given command because of tests'''
         game_printer.print_start()
-        self.add_game_tile_only_2s()
+        self.game_manager.add_game_tile_only_2s()
         self._run_game(command)
 
     def _run_game(self, command = None):
@@ -22,21 +21,21 @@ class PlayGame:
             Temporary:
                 if not command check for a test. '''
         while True:
-            game_printer.print_grid(self._game_grid)
+            game_printer.print_grid(self.game_manager.grid())
             if not command:
                 command = input("Select command: ")
 
             if command == "w":
-                self.move_up()
+                self.game_manager.move_up()
                 command = None
             elif command == "s":
-                self.move_down()
+                self.game_manager.move_down()
                 command = None
             elif command == "a":
-                self.move_left()
+                self.game_manager.move_left()
                 command = None
             elif command == "d":
-                self.move_right()
+                self.game_manager.move_right()
                 command = None
             elif command == "q":
                 break

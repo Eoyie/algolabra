@@ -1,5 +1,4 @@
 from random import randint
-import game_printer
 
 class GameManager:
     def __init__(self):
