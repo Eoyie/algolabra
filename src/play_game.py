@@ -12,9 +12,9 @@ class PlayGame:
                 given command because of tests'''
         game_printer.print_start()
         self.game_manager.add_game_tile_only_2s()
-        self._run_game(command)
+        self._un_game(command)
 
-    def _run_game(self, command = None):
+    def run_game(self, command = None):
         ''' Runs game on loop and asks for input.
             Currently only moves one 2 around grid.
         

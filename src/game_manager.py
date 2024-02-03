@@ -3,11 +3,9 @@ from random import randint
 class GameManager:
     def __init__(self):
         self._game_grid = []
-        self._new_grid()
-        self.temporary_test_pos = (0,0) # Temporary, will eventually be changed
-                                        # when moving will be changed to transpose etc.
-
-    def _new_grid(self):
+        self.new_grid()
+        
+    def new_grid(self):
         ''' Creates blank grid '''
         for _ in range(4):
             self._game_grid.append([0]*4)
@@ -27,41 +25,20 @@ class GameManager:
             row = randint(0, 3)
             column = randint(0, 3)
 
-        self.temporary_test_pos = (row, column)
         self._game_grid[row][column] = 2
 
-    def move_up(self):
-        ''' Very simple temporary movement method based on input:
-                Up '''
-        row = self.temporary_test_pos[0]
-        column = self.temporary_test_pos[1]
-        self._game_grid[row][column] = 0
-        self._game_grid[0][column] = 2
-        self.temporary_test_pos = (0, column)
+    def move(self, direction):
+        pass
 
-    def move_down(self):
-        ''' Very simple temporary movement method based on input:
-                Down '''
-        row = self.temporary_test_pos[0]
-        column = self.temporary_test_pos[1]
-        self._game_grid[row][column] = 0
-        self._game_grid[3][column] = 2
-        self.temporary_test_pos = (3, column)
+    def get_free_tiles(self):
+        free_tiles = []
 
-    def move_left(self):
-        ''' Very simple temporary movement method based on input:
-                Left '''
-        row = self.temporary_test_pos[0]
-        column = self.temporary_test_pos[1]
-        self._game_grid[row][column] = 0
-        self._game_grid[row][0] = 2
-        self.temporary_test_pos = (row, 0)
+        for i in range(4):
+            for j in range(4):
+                if self._game_grid[i][j] == 0:
+                    free_tiles.append((i,j))
 
-    def move_right(self):
-        ''' Very simple temporary movement method based on input:
-                Right '''
-        row = self.temporary_test_pos[0]
-        column = self.temporary_test_pos[1]
-        self._game_grid[row][column] = 0
-        self._game_grid[row][3] = 2
-        self.temporary_test_pos = (row, 3)
+        return free_tiles
+
+    def get_game_stage(self):
+        pass
