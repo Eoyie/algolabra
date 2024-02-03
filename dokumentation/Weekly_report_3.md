@@ -3,6 +3,8 @@ I've mainly struggled with how to continue the game. I spent some time trying to
 
 Especially with the expectiminimax I'm not sure I would've gotten anywhere alone with the pseudocode. Though even with the help of the video my algorithm is still broken and can't reach that high of a score. This I want to fix on my own next week rather than re-watching the video again. But for this I really feel I need to create some kind of different ui, because I find it very hard to follow the game on the command line.
 
+I did also start the testing document, but as all my test are very temporary right now and I need to fix other parts of the code first I couldn't really do much with it.
+
 ## How has the project progressed?
 - For the user the game works as it should
 - A version of expectiminimax is somewhat working (Not sure what's exactly wrong)
@@ -23,6 +25,7 @@ Well if I'm allowed to continue with this and don't have to redo stuff without t
 - Create UI to help see how to fix the expectiminimax!
     - Fix the algorithm.
 - Generally clean the code
+- Testing and testing document in a better and more final shape!!
 
 ## Time spent
 9 hours
