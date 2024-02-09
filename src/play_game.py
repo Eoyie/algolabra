@@ -76,7 +76,8 @@ class PlayGame:
                 if game_grid[j][i] != 0:
                     number_text = str(game_grid[j][i])
                     number = self.font.render(number_text, True, (200, 200, 200))
-                    self.screen.blit(number,(x+50,y+50))
+                    number_rect = number.get_rect(center=(x+125/2, y+125/2))
+                    self.screen.blit(number, number_rect)
                 pygame.draw.rect(self.screen, (200, 200, 200), rect, 1)
                 y += 125
             x += 125
