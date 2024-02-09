@@ -31,9 +31,9 @@ class PlayGame:
         while True:
             for event in pygame.event.get():
                 self.take_input(event)
-            #if self.ai_enabled:
-            #    direction = self.game_ai.next_move(2)
-            #    self.game_manager.move(direction)
+            if self.ai_enabled:
+                direction = self.game_ai.next_move(2)
+                self.game_manager.move(direction)
                 
             self.draw_board()
             pygame.display.flip()
@@ -57,6 +57,8 @@ class PlayGame:
                 self.game_manager.move("LEFT")
             elif event.key == pygame.K_RIGHT:
                 self.game_manager.move("RIGHT")
+            elif event.key == pygame.K_SPACE:
+                self.ai_enabled = not self.ai_enabled
 
     def game_score(self):
         ''' Temporary for tests, will involve printing in the future.'''
