@@ -1,5 +1,4 @@
 import pygame
-import game_printer
 from game_manager import GameManager
 from game_ai import GameExpectiminimax
 
@@ -21,7 +20,6 @@ class PlayGame:
         
             Temporary:
                 given command because of tests'''
-        game_printer.print_start()
         self.run_game(command)
 
     def run_game(self, command = None):
