@@ -11,7 +11,7 @@ class PlayGame:
         self.score = 0
         
         pygame.init()
-        self.screen = pygame.display.set_mode((500, 500))
+        self.screen = pygame.display.set_mode((500, 550))
         self.font = pygame.font.SysFont(None, 48)
         pygame.display.set_caption("2048")
 
@@ -70,7 +70,7 @@ class PlayGame:
         game_grid = self.game_manager.grid()
         x = 0
         for i in range(4):
-            y = 0
+            y = 50
             for j in range(4):
                 rect = pygame.Rect(x, y, 125, 125)
                 if game_grid[j][i] != 0:
@@ -81,3 +81,11 @@ class PlayGame:
                 pygame.draw.rect(self.screen, (200, 200, 200), rect, 1)
                 y += 125
             x += 125
+            
+        self.game_score()
+        score_text = self.font.render(f"Score: {self.score}", True, (200, 200, 200))
+        self.screen.blit(score_text, (5,5))
+        
+        if self.ai_enabled:
+            ai_text = self.font.render("AI enabled", True, (200, 200, 200))
+            self.screen.blit(ai_text, (320,5))
