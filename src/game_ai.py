@@ -81,9 +81,9 @@ class GameExpectiminimax:
             total_score = 0
             free_tiles = game_copy.get_free_tiles()
             for free_tile in free_tiles:
-                game_copy.add_game_tile_only_2s(free_tile)
+                game_copy.add_game_tile(free_tile)
                 total_score += 1.0/len(free_tiles) * self.expectiminimax(game_copy, \
                         depth - 0.5, direction)[0]
-                game_copy.add_game_tile_only_2s(free_tile)
+                game_copy.add_game_tile(free_tile)
 
         return (total_score, direction)

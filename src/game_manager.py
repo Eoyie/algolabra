@@ -3,21 +3,25 @@ from random import randint
 class GameManager:
     def __init__(self):
         self._game_grid = []
-        self.score = 0
+        self._score = 0
         self.new_grid()
 
     def new_grid(self):
         ''' Creates starting grid for game. '''
         for _ in range(4):
             self._game_grid.append([0]*4)
-        self.add_game_tile_only_2s()
-        self.add_game_tile_only_2s()
+        self.add_game_tile()
+        self.add_game_tile()
 
     def grid(self):
         ''' Returns game grid. '''
         return self._game_grid
+    
+    def score(self):
+        ''' Returns score'''
+        return self._score
 
-    def add_game_tile_only_2s(self, position = None):
+    def add_game_tile(self, position = None):
         ''' Adds randomly a single 2 to anywhere that's a free space 
             or to a given position.
             
@@ -120,10 +124,10 @@ class GameManager:
                     self._game_grid[y][x] = 0
                     self._game_grid[y_next][x_next] = temp
 
-        self.score += score
+        self._score += score
 
         if moved and add_tile:
-            self.add_game_tile_only_2s()
+            self.add_game_tile()
         return score, moved
 
     def get_game_stage(self):

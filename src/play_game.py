@@ -63,7 +63,7 @@ class PlayGame:
 
     def game_score(self):
         ''' Temporary for tests, will involve printing in the future.'''
-        self.score = self.game_manager.score
+        self.score = self.game_manager.score()
         return self.score
 
     def draw_board(self):
