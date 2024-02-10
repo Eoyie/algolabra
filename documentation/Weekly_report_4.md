@@ -21,3 +21,4 @@ Nothing really, but hopefully it was ok for me to not be in touch through Telegr
 - Tests for AI (not sure how yet)
   
 ## Time spent
+9 hours
