@@ -135,7 +135,7 @@ class GameManager:
             for j in range(4):
                 if self._game_grid[i][j] == 0:
                     return False
-                
+
                 if i > 0:
                     if self._game_grid[i][j] == self._game_grid[i-1][j]:
                         return False
