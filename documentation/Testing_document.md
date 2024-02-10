@@ -1,4 +1,4 @@
-# Testing document
+# Testing
 ## Coverage report
 [![codecov](https://codecov.io/gh/Eoyie/algolabra/graph/badge.svg?token=8VRGDBTIUH)](https://codecov.io/gh/Eoyie/algolabra)
 
