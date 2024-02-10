@@ -1,7 +1,13 @@
 ## The general structure of the program
+Todo:
+Add picture?
 ## The time and space complexities achieved (e.g., Big O analyses from pseudocode).
 ### Potentially, performance and Big O analysis comparison (if applicable to the topic).
+Need to double check. Otherwise same as mentioned in project specification?
 ## Shortcomings
+Many:
+- Currently slow AI (might change)
+- 
 ## Use of extensive language models
 None
 ## References
