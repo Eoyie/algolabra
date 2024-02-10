@@ -41,7 +41,7 @@ class GameExpectiminimax:
             score, moved = game_copy.move(direction, False)
             if not moved:
                 continue
-            score, move = self.expectiminimax(game_copy, depth, direction)
+            score, _ = self.expectiminimax(game_copy, depth, direction)
             if score > best_score:
                 best_score = score
                 best_move = direction
@@ -69,7 +69,7 @@ class GameExpectiminimax:
             total_score = float('-inf')
             for direction_2 in self.directions:
                 game_copy_2 = copy.deepcopy(game_copy)
-                score, moved = game_copy_2.move(direction_2, False)
+                _ , moved = game_copy_2.move(direction_2, False)
                 if moved:
                     result = self.expectiminimax(game_copy_2, depth - 0.5, \
                                                 direction_2)[0]

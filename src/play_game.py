@@ -1,3 +1,4 @@
+import sys
 import pygame
 from game_manager import GameManager
 from game_ai import GameExpectiminimax
@@ -47,7 +48,7 @@ class PlayGame:
                 Will be changed with new ui.'''
 
         if event.type == pygame.QUIT:
-            exit()
+            sys.exit()
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 self.game_manager.move("UP")

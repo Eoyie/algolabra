@@ -37,7 +37,7 @@ class GameManager:
         else:
             self._game_grid[position[0]][position[1]] = 2
 
-    def move(self, direction, next = True):
+    def move(self, direction, add_tile = True):
         ''' Moves tiles on the game grid by given direction.
         
             Args:
@@ -122,7 +122,7 @@ class GameManager:
 
         self.score += score
 
-        if moved and next:
+        if moved and add_tile:
             self.add_game_tile_only_2s()
         return score, moved
 
@@ -139,4 +139,3 @@ class GameManager:
                     free_tiles.append((i,j))
 
         return free_tiles
-
