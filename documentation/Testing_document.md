@@ -10,6 +10,8 @@ Done:
 - Start score
 - Start free tiles
 - AI playing to score 10
+
+All simple tests currently
 Todo:
 - Ready grid tests, so the game won't have to play for so long
   - Game end test
