@@ -17,17 +17,11 @@ class PlayGame:
         pygame.display.set_caption("2048")
 
     def start(self):
-        ''' Starts up the game
-        
-            Temporary:
-                given command because of tests'''
+        ''' Starts up the game. '''
         self.run_game()
 
     def run_game(self):
-        ''' Runs game on loop.
-        
-            Temporary:
-                If not command check for a test. '''
+        ''' Runs game on loop. '''
         timer = pygame.time.Clock()
         while True:
             if self.game_manager.check_game_end():
@@ -46,10 +40,7 @@ class PlayGame:
 
 
     def take_input(self, event):
-        ''' Takes the inputs
-        
-            Temporary:
-                Will be changed with new ui.'''
+        ''' Takes the inputs. '''
 
         if event.type == pygame.QUIT:
             sys.exit()
@@ -66,11 +57,12 @@ class PlayGame:
                 self.ai_enabled = not self.ai_enabled
 
     def game_score(self):
-        ''' Temporary for tests, will involve printing in the future.'''
+        ''' Returns game score. '''
         self.score = self.game_manager.score()
         return self.score
 
     def draw_board(self):
+        ''' Draws the pygame view of the board. '''
         self.screen.fill((0,0,0))
         game_grid = self.game_manager.grid()
         x = 0

@@ -131,6 +131,7 @@ class GameManager:
         return score, moved
 
     def check_game_end(self):
+        ''' Checks if the game is in a end state. '''
         for i in range(4):
             for j in range(4):
                 if self._game_grid[i][j] == 0:
