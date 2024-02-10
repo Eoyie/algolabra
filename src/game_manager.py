@@ -139,12 +139,4 @@ class GameManager:
                     free_tiles.append((i,j))
 
         return free_tiles
-    
-    def get_max_tile(self):
-        max_tile = 0
 
-        for i in range(4):
-            for j in range(4):
-                max_tile = max(max_tile, self._game_grid[i][j])
-
-        return max_tile

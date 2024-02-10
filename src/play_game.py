@@ -9,20 +9,20 @@ class PlayGame:
         self.ai_enabled = False
         self.stage = True
         self.score = 0
-        
+
         pygame.init()
         self.screen = pygame.display.set_mode((500, 550))
         self.font = pygame.font.SysFont(None, 48)
         pygame.display.set_caption("2048")
 
-    def start(self, command = None):
+    def start(self):
         ''' Starts up the game
         
             Temporary:
                 given command because of tests'''
-        self.run_game(command)
+        self.run_game()
 
-    def run_game(self, command = None):
+    def run_game(self):
         ''' Runs game on loop.
         
             Temporary:
@@ -34,7 +34,7 @@ class PlayGame:
             if self.ai_enabled:
                 direction = self.game_ai.next_move(2)
                 self.game_manager.move(direction)
-                
+
             self.draw_board()
             pygame.display.flip()
             timer.tick(60)
@@ -45,7 +45,7 @@ class PlayGame:
         
             Temporary:
                 Will be changed with new ui.'''
-                
+
         if event.type == pygame.QUIT:
             exit()
         elif event.type == pygame.KEYDOWN:

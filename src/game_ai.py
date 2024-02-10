@@ -1,5 +1,4 @@
 import copy
-import time
 
 class GameExpectiminimax:
     def __init__(self, game_manager):
@@ -34,7 +33,7 @@ class GameExpectiminimax:
                 The found best next move.
         '''
         best_move = "RIGHT"
-        best_score = float('-inf') 
+        best_score = float('-inf')
 
         # Creates a copy of the game to test the best direction with expectiminimax.
         for direction in self.directions:
@@ -42,14 +41,10 @@ class GameExpectiminimax:
             score, moved = game_copy.move(direction, False)
             if not moved:
                 continue
-            #time.sleep(1)
             score, move = self.expectiminimax(game_copy, depth, direction)
-            #score, move = self.minimax(game_copy, depth, "player1", direction)
-            #print(score,move)
             if score > best_score:
                 best_score = score
                 best_move = direction
-        #print(best_move, "#######")
         return best_move
 
     def expectiminimax(self, game_copy, depth, direction = None):
