@@ -7,7 +7,7 @@ Need to double check. Otherwise same as mentioned in project specification?
 ## Shortcomings
 Many:
 - Currently slow AI (might change)
-- 
+- To see: What stays the same and what I can improve on still
 ## Use of extensive language models
 None
 ## References
