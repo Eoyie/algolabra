@@ -81,11 +81,11 @@ class PlayGame:
                 pygame.draw.rect(self.screen, (200, 200, 200), rect, 1)
                 y += 125
             x += 125
-            
+
         self.game_score()
         score_text = self.font.render(f"Score: {self.score}", True, (200, 200, 200))
         self.screen.blit(score_text, (5,5))
-        
+
         if self.ai_enabled:
             ai_text = self.font.render("AI enabled", True, (200, 200, 200))
             self.screen.blit(ai_text, (320,5))
