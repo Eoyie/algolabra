@@ -3,7 +3,7 @@ I've mainly struggled with how to continue the game. I spent some time trying to
 
 Especially with the expectiminimax I'm not sure I would've gotten anywhere alone with the pseudocode. Though even with the help of the video my algorithm is still broken and can't reach that high of a score. This I want to fix on my own next week rather than re-watching the video again. But for this I really feel I need to create some kind of different ui, because I find it very hard to follow the game on the command line.
 
-I did also start the testing document, but as all my test are very temporary right now and I need to fix other parts of the code first I couldn't really do much with it.
+I did also start the testing document, but as all my test are very temporary right now and I need to fix other parts of the code first and I couldn't really do much with it. Hopefully the tests are still enough.. I generally I think I tested everything I could with the current code I have (I chose to ignore the ai code I can't test without changing the ui first from the coverage)? 
 
 ## How has the project progressed?
 - For the user the game works as it should
@@ -28,4 +28,4 @@ Well if I'm allowed to continue with this and don't have to redo stuff without t
 - Testing and testing document in a better and more final shape!!
 
 ## Time spent
-9 hours
+9,5 hours
