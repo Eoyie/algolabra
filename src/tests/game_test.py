@@ -2,7 +2,7 @@ import unittest
 from game_manager import GameManager
 
 class TestGameManager(unittest.TestCase):
-    ''' Temporary tests for current game code '''
+    ''' Tests for current game code '''
     def setUp(self):
         self.game_manager = GameManager()
 

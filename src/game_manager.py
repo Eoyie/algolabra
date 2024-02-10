@@ -130,8 +130,25 @@ class GameManager:
             self.add_game_tile()
         return score, moved
 
-    def get_game_stage(self):
-        pass # Need to first add tkinkter or pygame ui
+    def check_game_end(self):
+        for i in range(4):
+            for j in range(4):
+                if self._game_grid[i][j] == 0:
+                    return False
+                
+                if i > 0:
+                    if self._game_grid[i][j] == self._game_grid[i-1][j]:
+                        return False
+                if i < 3:
+                    if self._game_grid[i][j] == self._game_grid[i+1][j]:
+                        return False
+                if j > 0:
+                    if self._game_grid[i][j] == self._game_grid[i][j-1]:
+                        return False
+                if j < 3:
+                    if self._game_grid[i][j] == self._game_grid[i][j+1]:
+                        return False
+        return True
 
     def get_free_tiles(self):
         ''' Returns all tiles that are currently free.'''

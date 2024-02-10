@@ -30,6 +30,10 @@ class PlayGame:
                 If not command check for a test. '''
         timer = pygame.time.Clock()
         while True:
+            if self.game_manager.check_game_end():
+                print("GAME LOST")
+                print(f"TOTAL SCORE: {self.game_manager.score()}")
+                break
             for event in pygame.event.get():
                 self.take_input(event)
             if self.ai_enabled:
