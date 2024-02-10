@@ -1,6 +1,6 @@
 # Testing document
 ## Coverage report
-[Codecov](https://app.codecov.io/gh/Eoyie/algolabra)
+[![codecov](https://codecov.io/gh/Eoyie/algolabra/graph/badge.svg?token=8VRGDBTIUH)](https://codecov.io/gh/Eoyie/algolabra)
 ## What has been tested and how
 Todo:
 Currently only general moving around
