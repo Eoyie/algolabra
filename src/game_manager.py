@@ -16,7 +16,7 @@ class GameManager:
     def grid(self):
         ''' Returns game grid. '''
         return self._game_grid
-    
+
     def score(self):
         ''' Returns score'''
         return self._score

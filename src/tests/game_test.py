@@ -10,10 +10,10 @@ class TestGameManager(unittest.TestCase):
         score = self.game_manager.score()
 
         self.assertEqual(score, 0)
-        
+
     def test_start_free_tiles(self):
         free_tiles = len(self.game_manager.get_free_tiles())
-        
+
         self.assertEqual(free_tiles, 14)
 
     def test_move_up(self):
