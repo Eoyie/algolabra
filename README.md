@@ -5,7 +5,7 @@
 ## Documentation
 - [Project specification](documentation/Project_specification.md)
 - [Testing document](documentation/Testing_document.md)
-- [Implementation document](dokumentation/Implementation_document.md)
+- [Implementation document](documentation/Implementation_document.md)
   
   
 ## Weekly reports
