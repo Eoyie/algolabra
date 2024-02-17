@@ -14,13 +14,24 @@ class GameManager:
         self.add_game_tile()
 
     def set_grid(self, new_grid):
+        ''' Sets game grid to given grid
+        
+            Args:
+                new_grid: grid that'll replace the old one
+            Returns:
+                Result of if change was successful'''
         if self.check_valid_grid(new_grid):
             self._game_grid = new_grid
             return True
         return False
 
     def check_valid_grid(self, grid):
-        ''' Checks if given grid is a valid 4x4 grid'''
+        ''' Checks if given grid is a valid 4x4 grid
+        
+            Args:
+                grid: grid that'll be checked
+            Returns:
+                Result of check'''
         if not isinstance(grid, list):
             return False
         if len(grid) != 4:
