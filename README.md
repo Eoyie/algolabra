@@ -24,7 +24,7 @@ poetry run invoke start
 
 ### Other invoke commands
 
-- Tests (Takes quite a while because of one temporary AI test!)
+- Tests (Takes quite a while because of current slow AI!)
 ```
 poetry run invoke test
 ```
