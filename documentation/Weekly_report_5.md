@@ -9,7 +9,8 @@ Seeing the difference in hours spent on the projects was truly a humbling experi
 Still I also read the peer review for my project (which were far too kind) and spent some time thinking about those. 
 I didn't really work on any of the major tips yet, but I did look into them (though refactoring is something I'm well aware I should do)
 
-Then I generally tried to work even a little on the project with the time I had, but honestly, it's barely anything.
+Then I generally tried to work even a little on the project with the time I had, but honestly, it's barely anything. 
+I more-so know what I should do next and spent time thinking about that, than I actually got things done.
 
 ## How has the project progressed?
 Continued with AI tests, but still doesn't make that much sense to work on them as my algorithm is quite slow.
@@ -27,4 +28,4 @@ Work on AI
 Generally hopefully have more time next week! (Not likely)
 
 ## Hours spent
-6 hours
+7 hours
