@@ -8,13 +8,23 @@ class TestGameManager(unittest.TestCase):
     def setUp(self):
         self.game = FakePlayGame()
 
-    """
-    def test_reach_100(self):
-        time_reach_100 = timeit.timeit(lambda: self.game.game_loop(100),
+    def test_game_loop_2(self):
+        game_loop_2 = timeit.timeit(lambda: self.game.game_loop(2),
                                        number = 1)
 
-        self.assertAlmostEqual(time_reach_100, 10)
-    """
+        self.assertGreaterEqual(game_loop_2, 3)
+
+    def test_game_loop_4(self):
+        game_loop_4 = timeit.timeit(lambda: self.game.game_loop(4),
+                                       number = 1)
+
+        self.assertGreaterEqual(game_loop_4, 6)
+
+    def test_game_loop_8(self):
+        game_loop_8 = timeit.timeit(lambda: self.game.game_loop(8),
+                                       number = 1)
+
+        self.assertGreaterEqual(game_loop_8, 12)
 
     """def test_ai_runs(self):
         self.game.game_loop(3)
