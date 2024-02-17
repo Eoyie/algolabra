@@ -1,7 +1,31 @@
 # Implementation
 ## The general structure of the program
+
+### Game Manager
+- Grid:
+  - New Grid
+  - Set Grid
+  - Check Valid Grid
+- Tiles:
+  - Add Game Tile
+  - Get Free Tiles
+- Move
+- Check Game End
+
+### Game UI
+- Start
+- Run Game
+- Take Input
+- Draw Board
+  
+### AI
+- Heuristic Evaluation
+- Next Move
+- Expectiminimax
+  
 Todo:
-Add picture?
+Add class picture? Either change completely to a text-based explanation or keep bullet points, but add all the needed info.
+
 ## The time and space complexities achieved (e.g., Big O analyses from pseudocode).
 ### Potentially, performance and Big O analysis comparison (if applicable to the topic).
 Need to double check. Otherwise same as mentioned in project specification?
