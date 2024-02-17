@@ -28,7 +28,7 @@ poetry run invoke start
 ```
 poetry run invoke test
 ```
-- Coverage
+- Coverage report to html
 ```
 poetry run invoke coverage-report
 ```
