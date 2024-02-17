@@ -70,7 +70,7 @@ class TestGameManager(unittest.TestCase):
                 [2, 2, 2, 2],
                 [2, 2, 2, 2]]
         self.assertFalse(self.game_manager.set_grid(grid))
-        
+
     def test_set_invalid_column_grid(self):
         grid = [[2, 2, 2, 2, 2],
                 [2, 2, 2, 2, 2],
@@ -88,6 +88,13 @@ class TestGameManager(unittest.TestCase):
     def test_set_invalid_odd_number_grid(self):
         grid = [[2, 1, 0, 0],
                 [0, 0, 1, 0],
+                [0, 2, 0, 0],
+                [0, 0, 0, 0]]
+        self.assertFalse(self.game_manager.set_grid(grid))
+
+    def test_set_invalid_even_number_grid(self):
+        grid = [[2, 6, 0, 0],
+                [0, 0, 2, 0],
                 [0, 2, 0, 0],
                 [0, 0, 0, 0]]
         self.assertFalse(self.game_manager.set_grid(grid))

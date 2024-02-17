@@ -22,6 +22,12 @@ class TestGameManager(unittest.TestCase):
 
         self.assertGreaterEqual(score, 10)
 
+    def test_reach_2048(self):
+        grid = [[2, 2, 2, 2],
+                [2, 2, 2, 2],
+                [2, 2, 2, 2],
+                [2, 2, 2, 2]]
+        self.assertTrue(self.game.set_grid(grid))
 class FakePlayGame:
     def __init__(self):
         self.game_manager = GameManager()
@@ -41,5 +47,5 @@ class FakePlayGame:
     def get_game_score(self):
         return self.game_manager.score()
 
-    def set_ready_grid(self):
-        pass
+    def set_grid(self, grid):
+        return self.game_manager.set_grid(grid)

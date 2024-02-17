@@ -26,18 +26,14 @@ class GameManager:
         if len(grid) != 4:
             return False
 
-        number_sum = 0
         for column in grid:
             if len(column) != 4:
                 return False
 
-            for number in column:
-                if not number % 2 == 0:
+            for n in column:
+                if not (n > 0 and (n & (n - 1)) == 0):
                     return False
-            number_sum += sum(column)
-            
-        if number_sum == 0:
-            return False
+
         return True
 
     def grid(self):
