@@ -13,19 +13,19 @@ Then I generally tried to work even a little on the project with the time I had,
 I more-so know what I should do next and spent time thinking about that, than I actually got things done.
 
 ## How has the project progressed?
-Continued with AI tests, but still doesn't make that much sense to work on them as my algorithm is quite slow.
-Added set grid to more easily do tests on AI without always starting from 0.
+- Continued with AI tests, but still doesn't make that much sense to work on them as my algorithm is quite slow.
+- Added set grid to more easily do tests on AI without always starting from 0.
 
 ## What did you learn this week?
-Regarding my own work not much, but I did pick up on some things from the peer review I did. (For example I didn't even know you could have a moving ui like that in the terminal"
+Regarding my own work not much, but I did pick up on some things from the peer review I did. (For example I didn't even know you could have a moving ui like that in the terminal)
 
 ## What has been unclear or problematic? Please answer this question truthfully, as this is something the course assistant may be able to help with.
 Nothing really, mainly me being the problem.
 
 ## What next?
-Edit/clean code
-Work on AI
+Edit/clean code,
+Work on AI,
 Generally hopefully have more time next week! (Not likely)
 
 ## Hours spent
-7 hours
+7,5 hours
