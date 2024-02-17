@@ -7,11 +7,16 @@
 - Space to enable or stop AI
 
 ## Quick setup
-1. After downloading your clone of the repository:
+1. After downloading your clone of the repository install dependencies with:
 
 ```
 poetry install
 ```
+or if that doesn't work then with:
+```
+PYTHON_KEYRING_BACKEND=keyring.backends.fail.Keyring poetry install --no-root
+```
+
 2. To start the game:
 ```
 poetry run invoke start
@@ -44,4 +49,5 @@ poetry run invoke pylint
 - [Week 2](documentation/Weekly_report_2.md)
 - [Week 3](documentation/Weekly_report_3.md)
 - [Week 4](documentation/Weekly_report_4.md)
+- [Week 5](documentation/Weekly_report_5.md)
 
