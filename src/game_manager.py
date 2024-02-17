@@ -13,6 +13,33 @@ class GameManager:
         self.add_game_tile()
         self.add_game_tile()
 
+    def set_grid(self, new_grid):
+        if self.check_valid_grid(new_grid):
+            self._game_grid = new_grid
+            return True
+        return False
+
+    def check_valid_grid(self, grid):
+        ''' Checks if given grid is a valid 4x4 grid'''
+        if not isinstance(grid, list):
+            return False
+        if len(grid) != 4:
+            return False
+
+        number_sum = 0
+        for column in grid:
+            if len(column) != 4:
+                return False
+
+            for number in column:
+                if not number % 2 == 0:
+                    return False
+            number_sum += sum(column)
+            
+        if number_sum == 0:
+            return False
+        return True
+
     def grid(self):
         ''' Returns game grid. '''
         return self._game_grid

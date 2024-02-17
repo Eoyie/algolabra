@@ -16,7 +16,7 @@ class TestGameManager(unittest.TestCase):
         self.assertAlmostEqual(time_reach_100, 10)
     """
 
-    def test_reach_100(self):
+    def test_reach_10(self):
         self.game.game_loop(10)
         score = self.game.get_game_score()
 
