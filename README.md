@@ -17,7 +17,7 @@
 - [Week 5](documentation/Weekly_report_5.md)
   
 ## Quick game commands
-- Arrow keys to mode
+- Arrow keys to move
 - Space to enable or stop AI
 
 ## Quick setup
