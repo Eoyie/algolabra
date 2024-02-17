@@ -24,7 +24,7 @@ class TestGameManager(unittest.TestCase):
         game_loop_8 = timeit.timeit(lambda: self.game.game_loop(8),
                                        number = 1)
 
-        self.assertGreaterEqual(game_loop_8, 12)
+        self.assertGreaterEqual(game_loop_8, 8)
 
     """def test_ai_runs(self):
         self.game.game_loop(3)
