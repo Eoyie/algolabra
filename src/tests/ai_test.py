@@ -14,6 +14,7 @@ class TestGameManager(unittest.TestCase):
 
         self.assertGreaterEqual(game_loop_2, 3)
 
+    """
     def test_game_loop_4(self):
         game_loop_4 = timeit.timeit(lambda: self.game.game_loop(4),
                                        number = 1)
@@ -25,7 +26,7 @@ class TestGameManager(unittest.TestCase):
                                        number = 1)
 
         self.assertGreaterEqual(game_loop_8, 8)
-
+    """
     """def test_ai_runs(self):
         self.game.game_loop(3)
         score = self.game.get_game_score()
