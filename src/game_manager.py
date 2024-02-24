@@ -1,3 +1,4 @@
+import copy
 from random import randint
 
 class GameManager:
@@ -55,7 +56,7 @@ class GameManager:
         ''' Returns score'''
         return self._score
 
-    def add_game_tile(self, position = None):
+    def add_game_tile(self, position = None, num = None):
         ''' Adds randomly a single 2 to anywhere that's a free space 
             or to a given position.
             
@@ -73,7 +74,7 @@ class GameManager:
 
             self._game_grid[row][column] = 2
         else:
-            self._game_grid[position[0]][position[1]] = 2
+            self._game_grid[position[0]][position[1]] = num
 
     def move(self, direction, add_tile = True):
         ''' Moves tiles on the game grid by given direction.
@@ -195,3 +196,4 @@ class GameManager:
                     free_tiles.append((i,j))
 
         return free_tiles
+
