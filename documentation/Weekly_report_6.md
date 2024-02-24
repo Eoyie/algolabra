@@ -11,7 +11,7 @@ To perhaps do some comparisons as from what I understood minimax doesn't even al
 
 ## Some questions for final deadline
 - Is it okay to have the user guide in the README or should I make it it's own document?
-- Is the amount of automatic testing I have for the ai ok? Should I do more automatic tests or can I focus on manual? And for manual testing should I make "automatic" tests that run the game to completion for given amount times and returns the gotten scores? Or is it fine to do them completely manually. I'm asking this from a point point of view and might do more tests/the automatic test even though it's not "required".
+- Is the amount of automatic testing I have for the ai ok? Should I do more automatic tests or can I focus on manual? And for manual testing should I make "automatic" tests that run the game to completion for given amount times and returns the gotten scores? Or is it fine to do them completely manually. I'm asking this from a points point of view and might do more tests/the automatic test even though it's not "required".
 
 ## How has the project progressed?
 - Expectiminimax works? At least better than it used to!
