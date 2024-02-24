@@ -41,7 +41,7 @@ class TestGameManager(unittest.TestCase):
                 [128, 128, 128, 128]]
         self.assertTrue(self.game.set_grid(grid))
 
-        game_state = self.game.game_loop(7)
+        game_state = self.game.game_loop(8)
         biggest_tile = self.game.biggest_tile()
 
         self.assertGreaterEqual(biggest_tile, 2048)
