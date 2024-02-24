@@ -34,4 +34,4 @@ Well I was a little stressed out about the demo session times for some time as I
 - Generally finish the project and documentation as this is the last week report.
 
 ## Hours spent
-11 hours
+11.5 hours
