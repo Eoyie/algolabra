@@ -15,7 +15,7 @@
 - [Week 3](documentation/Weekly_report_3.md)
 - [Week 4](documentation/Weekly_report_4.md)
 - [Week 5](documentation/Weekly_report_5.md)
-- [Week 5](documentation/Weekly_report_6.md)
+- [Week 6](documentation/Weekly_report_6.md)
 
   
 ## Quick game commands
