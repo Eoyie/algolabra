@@ -32,6 +32,8 @@ Need to double check. Otherwise same as mentioned in project specification?
 
 ## Shortcomings
 To see, but might generally actually work now? If so will add to this later.
+
+- Known problem ai sometimes frozes when almost full :(
 ## Use of extensive language models
 None
 ## References
