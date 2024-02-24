@@ -1,5 +1,6 @@
 import sys
 import pygame
+from time import sleep
 from game_manager import GameManager
 from game_ai import GameExpectiminimax
 
@@ -25,8 +26,13 @@ class PlayGame:
         timer = pygame.time.Clock()
         while True:
             if self.game_manager.check_game_end():
+                biggest_tile = self.game_manager.biggest_tile()
+                print("####################")
                 print("GAME LOST")
                 print(f"TOTAL SCORE: {self.game_manager.score()}")
+                print(f"BIGGEST TILE: {biggest_tile}")
+                print("####################")
+                sleep(2)
                 break
             for event in pygame.event.get():
                 self.take_input(event)

@@ -1,10 +1,10 @@
-import copy
 from random import randint
 
 class GameManager:
     def __init__(self):
         self._game_grid = []
         self._score = 0
+        self._biggest_tile = 2
         self.new_grid()
 
     def new_grid(self):
@@ -55,6 +55,10 @@ class GameManager:
     def score(self):
         ''' Returns score'''
         return self._score
+
+    def biggest_tile(self):
+        ''' Returns biggest tile'''
+        return self._biggest_tile
 
     def add_game_tile(self, position = None, num = None):
         ''' Adds randomly a single 2 to anywhere that's a free space 
@@ -138,6 +142,8 @@ class GameManager:
                     score += self._game_grid[y_next][x_next]
 
                     self._game_grid[y_next][x_next] += self._game_grid[y][x]
+                    if self._biggest_tile < self._game_grid[y_next][x_next]:
+                        self._biggest_tile = self._game_grid[y_next][x_next]
                     self._game_grid[y][x] = 0
 
                 # Next tile is empty, will be moved to empty tile
@@ -196,4 +202,3 @@ class GameManager:
                     free_tiles.append((i,j))
 
         return free_tiles
-
