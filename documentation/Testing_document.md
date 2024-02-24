@@ -14,7 +14,7 @@
 - Questioning how much I should automatically test outside of the general tests I already have.I'd rather prioritize manual testing or make a longer separate test that does the manual test on it's own. Though this kind of test will take very long.
 
 ## Manual testing
-Current scores gotten on working?? expectiminimax:
+### Current scores gotten on working?? expectiminimax:
 | Total score | Biggest achieved tile |
 | ----------- | --------------------- |
 | 59982 | 8192? |
@@ -29,6 +29,7 @@ Current scores gotten on working?? expectiminimax:
 | 63174 | 8192 |
 | 40998 | 4096 |
 
+### Current highest achieved score: 63174
 Will do more runs to get averages etc. The tiles with question marks are from before I added printing for the biggest tile, but generally, I can assume those tiles were the highest tiles.
 
 
