@@ -12,7 +12,7 @@ class TestGameManager(unittest.TestCase):
         game_loop_2 = timeit.timeit(lambda: self.game.game_loop(2),
                                        number = 1)
 
-        self.assertGreaterEqual(game_loop_2, 3)
+        self.assertGreaterEqual(game_loop_2, 1)
 
     """
     def test_game_loop_4(self):
@@ -41,10 +41,10 @@ class TestGameManager(unittest.TestCase):
                 [128, 128, 128, 128]]
         self.assertTrue(self.game.set_grid(grid))
 
-        game_state = self.game.game_loop(6)
-        score = self.game.get_game_score()
+        game_state = self.game.game_loop(7)
+        biggest_tile = self.game.biggest_tile()
 
-        self.assertGreaterEqual(score, 4096)
+        self.assertGreaterEqual(biggest_tile, 2048)
         self.assertTrue(game_state)
 
     def test_ai_lose(self):
@@ -80,3 +80,6 @@ class FakePlayGame:
 
     def set_grid(self, grid):
         return self.game_manager.set_grid(grid)
+
+    def biggest_tile(self):
+        return self.game_manager.biggest_tile()

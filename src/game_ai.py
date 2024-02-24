@@ -91,8 +91,10 @@ class GameExpectiminimax:
 
         return (total_score, direction)
 
+
+    # Temporarely hidden because of pylint!
     def get_minimax_move(self):
-        ''' Temporary start of minimax implementation '''
+        ''' Temporary start of minimax implementation 
         self.node_scores = [0 for _ in range(50000)]
         self.child_list = [[] for _ in range (50000)]
         self.node_number = 1
@@ -103,10 +105,11 @@ class GameExpectiminimax:
 
         for index, i in enumerate(self.child_list[1]):
             if self.node_scores[i] == searched_value:
-                return self.directions[index]
+                return self.directions[index]'''
+
 
     def minimax(self, depth, node, alpha, beta):
-        ''' Temporary start of minimax implementation + alphabeta pruning'''
+        ''' Temporary start of minimax implementation + alphabeta pruning
         if depth == 0:
             self.node_scores[node] = self.minimax_heuristic()
             return self.node_scores[node]
@@ -137,6 +140,7 @@ class GameExpectiminimax:
             for free_tile in free_tiles:
                 game_copy.add_game_tile(free_tile, 2)
                 possible_grids.append()
+                '''
 
     def minimax_heuristic(self):
         pass

@@ -1,6 +1,6 @@
 import sys
-import pygame
 from time import sleep
+import pygame
 from game_manager import GameManager
 from game_ai import GameExpectiminimax
 

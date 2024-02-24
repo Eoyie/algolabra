@@ -5,6 +5,8 @@ class GameManager:
         self._game_grid = []
         self._score = 0
         self._biggest_tile = 2
+        self._moved = False
+        self._move_score = 0
         self.new_grid()
 
     def new_grid(self):
@@ -62,11 +64,12 @@ class GameManager:
 
     def add_game_tile(self, position = None, num = None):
         ''' Adds randomly a single 2 to anywhere that's a free space 
-            or to a given position.
+            or to a given positio with given number.
             
             Args:
                 position: Possible given position where 
                 the new tile will be placed.
+                num: Possible given num to be placed for ai
         '''
         if not position:
             row = randint(0, 3)
@@ -88,12 +91,12 @@ class GameManager:
             Returns: 
                 Gotten score and information on if anything was moved.
         '''
-        score = 0
+        self._move_score = 0
         xmin = 0
         xmax = 4
         ymin = 0
         ymax = 4
-        moved = False
+        self._moved = False
         collision_grid = []
 
         for _ in range(4):
@@ -114,62 +117,67 @@ class GameManager:
 
         for y in range(ymin, ymax, -1 if direction == "DOWN" else 1):
             for x in range(xmin, xmax, -1 if direction == "RIGHT" else 1):
-                if self._game_grid[y][x] == 0:
-                    continue
+                self.move_checks(x, y, xy, collision_grid)
 
-                x_next = x + xy[1]
-                y_next = y + xy[0]
 
-                while 0 <= x_next < 4 and 0 <=  y_next < 4 and \
-                    self._game_grid[y_next][x_next] == 0:
-                    x_next += xy[1]
-                    y_next += xy[0]
+        self._score += self._move_score
 
-                # If out of bounds will be moved back.
-                if x_next < 0 or x_next >= 4 or y_next < 0 or y_next >= 4:
-                    x_next -= xy[1]
-                    y_next -= xy[0]
-
-                if x_next == x and y_next == y:
-                    continue
-
-                # Equal to next tile, will be combined
-                if self._game_grid[y][x] == self._game_grid[y_next][x_next] \
-                    and not collision_grid[y_next][x_next]:
-
-                    moved = True
-                    collision_grid[y_next][x_next] = True
-                    score += self._game_grid[y_next][x_next]
-
-                    self._game_grid[y_next][x_next] += self._game_grid[y][x]
-                    if self._biggest_tile < self._game_grid[y_next][x_next]:
-                        self._biggest_tile = self._game_grid[y_next][x_next]
-                    self._game_grid[y][x] = 0
-
-                # Next tile is empty, will be moved to empty tile
-                elif self._game_grid[y_next][x_next] == 0:
-
-                    moved = True
-                    self._game_grid[y_next][x_next] = self._game_grid[y][x]
-                    self._game_grid[y][x] = 0
-
-                # If neihter move back
-                else:
-                    y_next -= xy[0]
-                    x_next -= xy[1]
-                    if y_next == y and x_next == x:
-                        continue
-
-                    moved = True
-                    temp = self._game_grid[y][x]
-                    self._game_grid[y][x] = 0
-                    self._game_grid[y_next][x_next] = temp
-
-        self._score += score
-
-        if moved and add_tile:
+        if self._moved and add_tile:
             self.add_game_tile()
-        return score, moved
+
+        return self._move_score, self._moved
+
+    def move_checks(self, x, y, xy, collision_grid):
+        if self._game_grid[y][x] == 0:
+            return
+
+        x_next = x + xy[1]
+        y_next = y + xy[0]
+
+        while 0 <= x_next < 4 and 0 <=  y_next < 4 and \
+            self._game_grid[y_next][x_next] == 0:
+            x_next += xy[1]
+            y_next += xy[0]
+
+        # If out of bounds will be moved back.
+        if x_next < 0 or x_next >= 4 or y_next < 0 or y_next >= 4:
+            x_next -= xy[1]
+            y_next -= xy[0]
+
+        if x_next == x and y_next == y:
+            return
+
+        # Equal to next tile, will be combined
+        if self._game_grid[y][x] == self._game_grid[y_next][x_next] \
+            and not collision_grid[y_next][x_next]:
+
+            self._moved = True
+            collision_grid[y_next][x_next] = True
+            self._move_score += self._game_grid[y_next][x_next]
+
+            self._game_grid[y_next][x_next] += self._game_grid[y][x]
+            if self._biggest_tile < self._game_grid[y_next][x_next]:
+                self._biggest_tile = self._game_grid[y_next][x_next]
+            self._game_grid[y][x] = 0
+
+        # Next tile is empty, will be moved to empty tile
+        elif self._game_grid[y_next][x_next] == 0:
+
+            self._moved = True
+            self._game_grid[y_next][x_next] = self._game_grid[y][x]
+            self._game_grid[y][x] = 0
+
+        # If neihter move back
+        else:
+            y_next -= xy[0]
+            x_next -= xy[1]
+            if y_next == y and x_next == x:
+                return
+
+            self._moved = True
+            temp = self._game_grid[y][x]
+            self._game_grid[y][x] = 0
+            self._game_grid[y_next][x_next] = temp
 
     def check_game_end(self):
         ''' Checks if the game is in a end state. '''
