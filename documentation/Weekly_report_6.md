@@ -9,6 +9,10 @@ It's still visible in the minimax code where I realised my mistake in the Comput
 I still decided to keep what I had started on with minimax as I'll try to finish it if I have time.
 To perhaps do some comparisons as from what I understood minimax doesn't even always reach 2048, while everytime I tested the now "working" Expectiminimax I never got under 4048.
 
+## Some questions for final deadline
+- Is it okay to have the user guide in the README or should I make it it's own document?
+- Is the amount of automatic testing I have for the ai ok? Should I do more automatic tests or can I focus on manual? And for manual testing should I make "automatic" tests that run the game to completion for given amount times and returns the gotten scores? Or is it fine to do them completely manually. I'm asking this from a point point of view and might do more tests/the automatic test even though it's not "required".
+
 ## How has the project progressed?
 - Expectiminimax works? At least better than it used to!
 - Started a little bit on minimax
