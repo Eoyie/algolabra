@@ -79,7 +79,10 @@ class GameManager:
                 row = randint(0, 3)
                 column = randint(0, 3)
 
-            self._game_grid[row][column] = 2
+            if randint(0,100) <= 90:
+                self._game_grid[row][column] = 2
+            else:
+                self._game_grid[row][column] = 4
         else:
             self._game_grid[position[0]][position[1]] = num
 
@@ -134,6 +137,7 @@ class GameManager:
         x_next = x + xy[1]
         y_next = y + xy[0]
 
+        # Check blank tiles
         while 0 <= x_next < 4 and 0 <=  y_next < 4 and \
             self._game_grid[y_next][x_next] == 0:
             x_next += xy[1]
