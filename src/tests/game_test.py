@@ -17,23 +17,38 @@ class TestGameManager(unittest.TestCase):
         self.assertEqual(free_tiles, 14)
 
     def test_move_up(self):
+        grid = [[0, 0, 0, 0],
+                [0, 2, 0, 0],
+                [0, 0, 2, 0],
+                [0, 0, 0, 0]]
+        self.assertFalse(self.game_manager.set_grid(grid))
         self.game_manager.move("UP")
         grid = self.game_manager.grid()
-        possible_sums = [2, 4, 6, 8]
+        possible_sums = [4, 6, 8]
 
         self.assertIn(sum(grid[0]), possible_sums)
 
     def test_move_down(self):
+        grid = [[0, 0, 0, 0],
+                [0, 2, 0, 0],
+                [0, 0, 2, 0],
+                [0, 0, 0, 0]]
+        self.assertFalse(self.game_manager.set_grid(grid))
         self.game_manager.move("DOWN")
         grid = self.game_manager.grid()
-        possible_sums = [2, 4, 6, 8]
+        possible_sums = [4, 6, 8]
 
         self.assertIn(sum(grid[3]), possible_sums)
 
     def test_move_left(self):
+        grid = [[0, 0, 0, 0],
+                [0, 2, 0, 0],
+                [0, 0, 2, 0],
+                [0, 0, 0, 0]]
+        self.assertFalse(self.game_manager.set_grid(grid))
         self.game_manager.move("LEFT")
         grid = self.game_manager.grid()
-        possible_sums = [2, 4, 6, 8]
+        possible_sums = [4, 6, 8]
 
         left_column_sum = 0
         for row in grid:
@@ -42,9 +57,14 @@ class TestGameManager(unittest.TestCase):
         self.assertIn(left_column_sum, possible_sums)
 
     def test_move_right(self):
+        grid = [[0, 0, 0, 0],
+                [0, 2, 0, 0],
+                [0, 0, 2, 0],
+                [0, 0, 0, 0]]
+        self.assertFalse(self.game_manager.set_grid(grid))
         self.game_manager.move("RIGHT")
         grid = self.game_manager.grid()
-        possible_sums = [2, 4, 6, 8]
+        possible_sums = [4, 6, 8]
 
         right_column_sum = 0
         for row in grid:
