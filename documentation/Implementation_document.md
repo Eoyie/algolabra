@@ -1,7 +1,9 @@
 # Implementation
 ## The general structure of the program
 
+The general structure of the program is very simple consisting only of 3 .py files:
 ### Game Manager
+Manages the game and the grid
 - Grid:
   - New Grid: Creates a starting grid
   - Set Grid: Sets a given custom grid
@@ -13,6 +15,7 @@
 - Check Game End
 
 ### Game UI
+Manages what is visible to the player
 - Ask Grid: Asks if the player wants to use a custom grid or not
 - Start: If a valid or default grid moves to the game loop
 - Run Game: Game loop
@@ -21,6 +24,7 @@
 - End Game: Prints the reached biggest tile and score
   
 ### AI
+Manages the AI
 - Heuristic Evaluation: Snake heuristic evaluation of given board
 - Next Move: Gets next best move by the help of Expectiminimax
 - Expectiminimax
