@@ -119,3 +119,61 @@ class TestGameManager(unittest.TestCase):
 
         self.assertIn(right_column_sum, possible_sums)
 
+    def test_add_tile_position(self):
+        self.game_manager.add_game_tile([1,1], 1)
+        self.assertEqual(self.game_manager.grid()[1][1], 1)
+
+    def test_check_game_end_invalid_blanks(self):
+        result = self.game_manager.check_game_end()
+
+        self.assertFalse(result)
+
+    def test_check_game_end_invalid_start_row(self):
+        grid = [[2, 2, 4, 128],
+                [128, 4, 128, 2],
+                [2, 128, 2, 128],
+                [128, 2, 128, 2]]
+        self.game_manager.set_grid(grid)
+        result = self.game_manager.check_game_end()
+
+        self.assertFalse(result)
+
+    def test_check_game_end_invalid_end_row(self):
+        grid = [[2, 128, 2, 2],
+                [128, 2, 128, 4],
+                [2, 128, 2, 128],
+                [128, 2, 128, 2]]
+        self.game_manager.set_grid(grid)
+        result = self.game_manager.check_game_end()
+
+        self.assertFalse(result)
+
+    def test_check_game_end_invalid_start_column(self):
+        grid = [[4, 128, 2, 128],
+                [2, 4, 128, 2],
+                [2, 128, 2, 128],
+                [128, 2, 128, 2]]
+        self.game_manager.set_grid(grid)
+        result = self.game_manager.check_game_end()
+
+        self.assertFalse(result)
+
+    def test_check_game_end_invalid_end_column(self):
+        grid = [[2, 128, 2, 128],
+                [128, 2, 128, 2],
+                [2, 128, 4, 2],
+                [128, 2, 128, 4]]
+        self.game_manager.set_grid(grid)
+        result = self.game_manager.check_game_end()
+
+        self.assertFalse(result)
+
+    def test_check_game_end_valid(self):
+        grid = [[2, 128, 2, 128],
+                [128, 2, 128, 2],
+                [2, 128, 2, 128],
+                [128, 2, 128, 2]]
+        self.game_manager.set_grid(grid)
+        result = self.game_manager.check_game_end()
+
+        self.assertTrue(result)

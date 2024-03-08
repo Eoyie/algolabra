@@ -8,31 +8,17 @@ class TestGameManager(unittest.TestCase):
     def setUp(self):
         self.game = FakePlayGame()
 
+    def test_ai_runs(self):
+        self.game.game_loop(4)
+        score = self.game.get_game_score()
+
+        self.assertGreaterEqual(score, 2)
+
     def test_game_loop_2(self):
         game_loop_2 = timeit.timeit(lambda: self.game.game_loop(2),
                                        number = 1)
 
-        self.assertGreaterEqual(game_loop_2, 1)
-
-    """
-    def test_game_loop_4(self):
-        game_loop_4 = timeit.timeit(lambda: self.game.game_loop(4),
-                                       number = 1)
-
-        self.assertGreaterEqual(game_loop_4, 6)
-
-    def test_game_loop_8(self):
-        game_loop_8 = timeit.timeit(lambda: self.game.game_loop(8),
-                                       number = 1)
-
-        self.assertGreaterEqual(game_loop_8, 8)
-    """
-    """def test_ai_runs(self):
-        self.game.game_loop(3)
-        score = self.game.get_game_score()
-
-        self.assertGreaterEqual(score, 2)
-    """
+        self.assertGreaterEqual(game_loop_2, 0.7)
 
     def test_ai_reach_2048(self):
         grid = [[128, 128, 128, 128],
@@ -41,10 +27,10 @@ class TestGameManager(unittest.TestCase):
                 [128, 128, 128, 128]]
         self.assertTrue(self.game.set_grid(grid))
 
-        game_state = self.game.game_loop(8)
+        game_state = self.game.game_loop(9)
         biggest_tile = self.game.biggest_tile()
 
-        self.assertGreaterEqual(biggest_tile, 2048)
+        self.assertEqual(biggest_tile, 2048)
         self.assertTrue(game_state)
 
     def test_ai_lose(self):

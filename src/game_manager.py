@@ -67,7 +67,7 @@ class GameManager:
 
     def add_game_tile(self, position = None, num = None):
         ''' Adds randomly a single 2 to anywhere that's a free space 
-            or to a given positio with given number.
+            or to a given position with given number.
             
             Args:
                 position: Possible given position where 
@@ -204,14 +204,8 @@ class GameManager:
                     return False
 
                 # Any possible combinations, not over
-                if i > 0:
-                    if self._game_grid[i][j] == self._game_grid[i-1][j]:
-                        return False
                 if i < 3:
                     if self._game_grid[i][j] == self._game_grid[i+1][j]:
-                        return False
-                if j > 0:
-                    if self._game_grid[i][j] == self._game_grid[i][j-1]:
                         return False
                 if j < 3:
                     if self._game_grid[i][j] == self._game_grid[i][j+1]:
