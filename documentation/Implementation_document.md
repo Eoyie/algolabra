@@ -9,7 +9,7 @@
 - Tiles:
   - Add Game Tile
   - Get Free Tiles
-- Move
+- Move & move checks
 - Check Game End
 
 ### Game UI
@@ -17,23 +17,20 @@
 - Run Game
 - Take Input
 - Draw Board
+- End Game
   
 ### AI
 - Heuristic Evaluation
 - Next Move
 - Expectiminimax
-  
-Todo:
-Add class picture? Either change completely to a text-based explanation or keep bullet points, but add all the needed info.
 
-## The time and space complexities achieved (e.g., Big O analyses from pseudocode).
-### Potentially, performance and Big O analysis comparison (if applicable to the topic).
-Need to double check. Otherwise same as mentioned in project specification?
+
+## The time and space complexities achieved
+I remain to be uncertain of these, so estimates in the project estimation are the closest I have to an asnwer.
 
 ## Shortcomings
-To see, but might generally actually work now? If so will add to this later.
-
-- Known problem ai sometimes frozes when almost full :(
+- AI sometimes frozes when almost full
+- AI doesn't check for 4 tiles
 ## Use of extensive language models
 None
 ## References
@@ -44,4 +41,3 @@ None
   - For general understanding, though not influenced code other than trying to make minimax based on this, which I did not end up using.
 - [Beginner’s guide to AI and writing your own bot for the 2048 game](https://medium.com/@bartoszzadrony/beginners-guide-to-ai-and-writing-your-own-bot-for-the-2048-game-4b8083faaf53)
   - For my minimax try and helped realize mistakes made in expectiminimax as well. 
-- Todo: Add more!
