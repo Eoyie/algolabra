@@ -3,30 +3,30 @@
 
 ### Game Manager
 - Grid:
-  - New Grid
-  - Set Grid
-  - Check Valid Grid
+  - New Grid: Creates a starting grid
+  - Set Grid: Sets a given custom grid
+  - Check Valid Grid: Check validity of custom grid
 - Tiles:
-  - Add Game Tile
-  - Get Free Tiles
-- Move & move checks
+  - Add Game Tile: Adds 2 or 4 tiles or a given custom tiles to a given position
+  - Get Free Tiles: Returns all blank tiles
+- Move & move checks: Moves the grid in given direction based on various checks
 - Check Game End
 
 ### Game UI
-- Start
-- Run Game
-- Take Input
-- Draw Board
-- End Game
+- Ask Grid: Asks if the player wants to use a custom grid or not
+- Start: If a valid or default grid moves to the game loop
+- Run Game: Game loop
+- Take Input: Takes inputs of arrow keys, space and closing
+- Draw Board: Updates the pygame visible board
+- End Game: Prints the reached biggest tile and score
   
 ### AI
-- Heuristic Evaluation
-- Next Move
+- Heuristic Evaluation: Snake heuristic evaluation of given board
+- Next Move: Gets next best move by the help of Expectiminimax
 - Expectiminimax
 
-
 ## The time and space complexities achieved
-I remain to be uncertain of these, so estimates in the project estimation are the closest I have to an asnwer.
+I remain to be uncertain of these, so estimates in the project estimation are the closest I have to an answer.
 
 ## Shortcomings
 - AI sometimes frozes when almost full
