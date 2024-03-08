@@ -68,7 +68,7 @@ class GameExpectiminimax:
         if depth != int(depth):
             total_score = float('-inf')
             for direction_2 in self.directions:
-                game_copy_2 = copy.deepcopy(game_copy) # Copy of the previous copy to test more moves
+                game_copy_2 = copy.deepcopy(game_copy) # Copy of the previous copy to test moves
                 _ , moved = game_copy_2.move(direction_2, False)
                 if moved:
                     result = self.expectiminimax(game_copy_2, depth - 0.5,

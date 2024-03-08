@@ -71,7 +71,6 @@ class PlayGame:
 
     def take_input(self, event):
         ''' Takes the inputs. '''
-
         if event.type == pygame.QUIT:
             self.end_game()
             sys.exit()
@@ -119,6 +118,7 @@ class PlayGame:
             self.screen.blit(ai_text, (320,5))
 
     def end_game(self):
+        ''' Prints the end score and biggest tile when game is lost or ended'''
         biggest_tile = self.game_manager.biggest_tile()
         print("####################")
         print("GAME END")
