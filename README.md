@@ -73,7 +73,7 @@ How to make a valid custom grid:
 - Inputs are treated as rows:
   - Input 4 numbers divided by spaces to create one row
   - Press "Enter" to move on to the next row and follow the same for all 4 rows
-- Use 0s or powers of 2
+- Use 0s and powers of 2, except 1
 
 If your grid is valid the game should open with your given grid as the game grid.
 
