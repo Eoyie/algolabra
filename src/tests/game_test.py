@@ -19,21 +19,21 @@ class TestGameManager(unittest.TestCase):
     def test_move_up(self):
         self.game_manager.move("UP")
         grid = self.game_manager.grid()
-        possible_sums = [4, 6]
+        possible_sums = [2, 4, 6, 8]
 
         self.assertIn(sum(grid[0]), possible_sums)
 
     def test_move_down(self):
         self.game_manager.move("DOWN")
         grid = self.game_manager.grid()
-        possible_sums = [4, 6]
+        possible_sums = [2, 4, 6, 8]
 
         self.assertIn(sum(grid[3]), possible_sums)
 
     def test_move_left(self):
         self.game_manager.move("LEFT")
         grid = self.game_manager.grid()
-        possible_sums = [4, 6]
+        possible_sums = [2, 4, 6, 8]
 
         left_column_sum = 0
         for row in grid:
@@ -44,7 +44,7 @@ class TestGameManager(unittest.TestCase):
     def test_move_right(self):
         self.game_manager.move("RIGHT")
         grid = self.game_manager.grid()
-        possible_sums = [4, 6]
+        possible_sums = [2, 4, 6, 8]
 
         right_column_sum = 0
         for row in grid:

@@ -11,6 +11,9 @@ class PlayGame:
         self.ai_enabled = False
         self.stage = True
         self.score = 0
+        self.invalid = False
+
+        self.ask_grid()
 
         pygame.init()
         self.screen = pygame.display.set_mode((500, 550))
@@ -19,19 +22,40 @@ class PlayGame:
 
     def start(self):
         ''' Starts up the game. '''
+        if self.invalid:
+            return
         self.run_game()
+
+    def ask_grid(self):
+        ''' Asks for optional given grid or default'''
+        print("")
+        print("#### 2048 game ####")
+        answer = input("Use default grid? (y/n): ")
+        print("")
+        if answer == "y":
+            return
+        if answer == "n":
+            print("Give custom 4x4 game grid by row (seperated by space): ")
+            grid = []
+            for _ in range(4):
+                grid.append(list(map(int, input().split())))
+
+            if self.game_manager.set_grid(grid):
+                print("Valid grid, continue to game")
+                print("")
+                return
+            print("Invalid grid")
+        else:
+            print("Invalid answer")
+        self.invalid = True
 
     def run_game(self):
         ''' Runs game on loop. '''
         timer = pygame.time.Clock()
+        #start = time()
         while True:
             if self.game_manager.check_game_end():
-                biggest_tile = self.game_manager.biggest_tile()
-                print("####################")
-                print("GAME LOST")
-                print(f"TOTAL SCORE: {self.game_manager.score()}")
-                print(f"BIGGEST TILE: {biggest_tile}")
-                print("####################")
+                self.end_game()
                 sleep(2)
                 break
             for event in pygame.event.get():
@@ -49,6 +73,7 @@ class PlayGame:
         ''' Takes the inputs. '''
 
         if event.type == pygame.QUIT:
+            self.end_game()
             sys.exit()
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
@@ -92,3 +117,14 @@ class PlayGame:
         if self.ai_enabled:
             ai_text = self.font.render("AI enabled", True, (200, 200, 200))
             self.screen.blit(ai_text, (320,5))
+
+    def end_game(self):
+        biggest_tile = self.game_manager.biggest_tile()
+        #end = time()
+        #length = start - end
+        print("####################")
+        print("GAME END")
+        print(f"TOTAL SCORE: {self.game_manager.score()}")
+        #print(f"TOTAL TIME: {length}")
+        print(f"BIGGEST TILE: {biggest_tile}")
+        print("####################")

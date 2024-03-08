@@ -47,6 +47,8 @@ class GameManager:
             for n in column:
                 if not (n > 0 and (n & (n - 1)) == 0):
                     return False
+                if n == 1:
+                    return False
 
         return True
 

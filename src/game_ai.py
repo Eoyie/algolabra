@@ -94,7 +94,7 @@ class GameExpectiminimax:
                 #game_copy.add_game_tile(free_tile, 4)
                 #total_score += 1.0/len(free_tiles) * self.expectiminimax(game_copy,
                 #                                        depth - 0.5, direction)[0] * 0.1
-                
+
                 game_copy.add_game_tile(free_tile, 0)
 
         return (total_score, direction)
