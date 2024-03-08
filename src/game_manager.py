@@ -9,15 +9,27 @@ class GameManager:
         self._move_score = 0
         self.new_grid()
 
+    def grid(self):
+        ''' Returns game grid. '''
+        return self._game_grid
+
+    def score(self):
+        ''' Returns score. '''
+        return self._score
+
+    def biggest_tile(self):
+        ''' Returns biggest tile. '''
+        return self._biggest_tile
+
     def new_grid(self):
-        ''' Creates starting grid for game. '''
+        ''' Creates starting grid for the game. '''
         for _ in range(4):
             self._game_grid.append([0]*4)
         self.add_game_tile()
         self.add_game_tile()
 
     def set_grid(self, new_grid):
-        ''' Sets game grid to given grid
+        ''' Sets game grid to given grid.
         
             Args:
                 new_grid: grid that'll replace the old one
@@ -29,7 +41,7 @@ class GameManager:
         return False
 
     def check_valid_grid(self, grid):
-        ''' Checks if given grid is a valid 4x4 grid
+        ''' Checks if given grid is a valid 4x4 grid.
         
             Args:
                 grid: grid that'll be checked
@@ -44,6 +56,7 @@ class GameManager:
             if len(column) != 4:
                 return False
 
+            # Check if not powers of 2
             for n in column:
                 if not (n > 0 and (n & (n - 1)) == 0):
                     return False
@@ -51,18 +64,6 @@ class GameManager:
                     return False
 
         return True
-
-    def grid(self):
-        ''' Returns game grid. '''
-        return self._game_grid
-
-    def score(self):
-        ''' Returns score'''
-        return self._score
-
-    def biggest_tile(self):
-        ''' Returns biggest tile'''
-        return self._biggest_tile
 
     def add_game_tile(self, position = None, num = None):
         ''' Adds randomly a single 2 to anywhere that's a free space 
@@ -97,16 +98,18 @@ class GameManager:
                 Gotten score and information on if anything was moved.
         '''
         self._move_score = 0
+        self._moved = False
+        # Base values of max grid rows and columns to be checked
         xmin = 0
         xmax = 4
         ymin = 0
         ymax = 4
-        self._moved = False
         collision_grid = []
 
         for _ in range(4):
             collision_grid.append([False]*4)
 
+        # Based on moving direction change base values and determine the moving direction in xy
         if direction == "UP":
             xy = (-1,0)
         if direction == "DOWN":
@@ -120,10 +123,10 @@ class GameManager:
             xmin = 3
             xmax = -1
 
+        # Check whole grid with opposite order if down or right
         for y in range(ymin, ymax, -1 if direction == "DOWN" else 1):
             for x in range(xmin, xmax, -1 if direction == "RIGHT" else 1):
                 self.move_checks(x, y, xy, collision_grid)
-
 
         self._score += self._move_score
 
@@ -133,27 +136,33 @@ class GameManager:
         return self._move_score, self._moved
 
     def move_checks(self, x, y, xy, collision_grid):
+        ''' Does checks for moving tiles in given direction
+            and changes the grid based on that. '''
+        # if blank tile no moving required
         if self._game_grid[y][x] == 0:
             return
 
+        # Next x and y based on direction
         x_next = x + xy[1]
         y_next = y + xy[0]
 
-        # Check blank tiles
-        while 0 <= x_next < 4 and 0 <=  y_next < 4 and \
+        # Move over blank tiles
+        while 0 <= x_next < 4 and 0 <= y_next < 4 and \
             self._game_grid[y_next][x_next] == 0:
             x_next += xy[1]
             y_next += xy[0]
 
-        # If out of bounds will be moved back.
+        # If out of bounds will be moved back
         if x_next < 0 or x_next >= 4 or y_next < 0 or y_next >= 4:
             x_next -= xy[1]
             y_next -= xy[0]
 
+        # If no movement possible
         if x_next == x and y_next == y:
             return
 
-        # Equal to next tile, will be combined
+        # Updating grid:
+        # Equal to next tile and not already combined, will be combined
         if self._game_grid[y][x] == self._game_grid[y_next][x_next] \
             and not collision_grid[y_next][x_next]:
 
@@ -173,7 +182,8 @@ class GameManager:
             self._game_grid[y_next][x_next] = self._game_grid[y][x]
             self._game_grid[y][x] = 0
 
-        # If neihter move back
+        # If neihter (for example next to already combined tile)
+        # move back
         else:
             y_next -= xy[0]
             x_next -= xy[1]
@@ -189,9 +199,11 @@ class GameManager:
         ''' Checks if the game is in a end state. '''
         for i in range(4):
             for j in range(4):
+                # Any blank tiles, not over
                 if self._game_grid[i][j] == 0:
                     return False
 
+                # Any possible combinations, not over
                 if i > 0:
                     if self._game_grid[i][j] == self._game_grid[i-1][j]:
                         return False
