@@ -21,7 +21,7 @@ class PlayGame:
         pygame.display.set_caption("2048")
 
     def start(self):
-        ''' Starts up the game. '''
+        ''' Starts up the game unless given grid was invalid. '''
         if self.invalid:
             return
         self.run_game()
@@ -32,18 +32,19 @@ class PlayGame:
         print("#### 2048 game ####")
         answer = input("Use default grid? (y/n): ")
         print("")
-        if answer == "y":
+        if answer == "y": # Continue with default
             return
-        if answer == "n":
+        if answer == "n": # Ask for grid by row
             print("Give custom 4x4 game grid by row (seperated by space): ")
             grid = []
             for _ in range(4):
                 grid.append(list(map(int, input().split())))
 
-            if self.game_manager.set_grid(grid):
+            if self.game_manager.set_grid(grid): # Check for valid grid
                 print("Valid grid, continue to game")
                 print("")
                 return
+
             print("Invalid grid")
         else:
             print("Invalid answer")
@@ -52,7 +53,6 @@ class PlayGame:
     def run_game(self):
         ''' Runs game on loop. '''
         timer = pygame.time.Clock()
-        #start = time()
         while True:
             if self.game_manager.check_game_end():
                 self.end_game()
@@ -120,11 +120,8 @@ class PlayGame:
 
     def end_game(self):
         biggest_tile = self.game_manager.biggest_tile()
-        #end = time()
-        #length = start - end
         print("####################")
         print("GAME END")
         print(f"TOTAL SCORE: {self.game_manager.score()}")
-        #print(f"TOTAL TIME: {length}")
         print(f"BIGGEST TILE: {biggest_tile}")
         print("####################")
