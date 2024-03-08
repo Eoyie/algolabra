@@ -52,17 +52,21 @@ class GameManager:
         if len(grid) != 4:
             return False
 
+        check_0 = 0
         for column in grid:
+            check_0 += sum(column)
             if len(column) != 4:
                 return False
 
             # Check if not powers of 2
             for n in column:
-                if not (n > 0 and (n & (n - 1)) == 0):
-                    return False
-                if n == 1:
-                    return False
-
+                if n != 0:
+                    if not (n > 0 and (n & (n - 1)) == 0):
+                        return False
+                    if n == 1:
+                        return False
+        if check_0 == 0:
+            return False
         return True
 
     def add_game_tile(self, position = None, num = None):

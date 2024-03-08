@@ -68,7 +68,7 @@ class TestGameManager(unittest.TestCase):
                 [0, 2, 0, 0],
                 [0, 0, 2, 0],
                 [0, 0, 0, 0]]
-        self.assertFalse(self.game_manager.set_grid(grid))
+        self.assertTrue(self.game_manager.set_grid(grid))
         self.game_manager.move("UP")
         grid = self.game_manager.grid()
         possible_sums = [4, 6, 8]
@@ -80,7 +80,7 @@ class TestGameManager(unittest.TestCase):
                 [0, 2, 0, 0],
                 [0, 0, 2, 0],
                 [0, 0, 0, 0]]
-        self.assertFalse(self.game_manager.set_grid(grid))
+        self.assertTrue(self.game_manager.set_grid(grid))
         self.game_manager.move("DOWN")
         grid = self.game_manager.grid()
         possible_sums = [4, 6, 8]
@@ -92,7 +92,7 @@ class TestGameManager(unittest.TestCase):
                 [0, 2, 0, 0],
                 [0, 0, 2, 0],
                 [0, 0, 0, 0]]
-        self.assertFalse(self.game_manager.set_grid(grid))
+        self.assertTrue(self.game_manager.set_grid(grid))
         self.game_manager.move("LEFT")
         grid = self.game_manager.grid()
         possible_sums = [4, 6, 8]
@@ -108,7 +108,7 @@ class TestGameManager(unittest.TestCase):
                 [0, 2, 0, 0],
                 [0, 0, 2, 0],
                 [0, 0, 0, 0]]
-        self.assertFalse(self.game_manager.set_grid(grid))
+        self.assertTrue(self.game_manager.set_grid(grid))
         self.game_manager.move("RIGHT")
         grid = self.game_manager.grid()
         possible_sums = [4, 6, 8]
