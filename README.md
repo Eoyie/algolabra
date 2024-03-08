@@ -7,7 +7,6 @@
 - [Testing document](documentation/Testing_document.md)
 - [Implementation document](documentation/Implementation_document.md)
   
-  
 ## Weekly reports
 
 - [Week 1](documentation/Weekly_report_1.md)
@@ -16,11 +15,6 @@
 - [Week 4](documentation/Weekly_report_4.md)
 - [Week 5](documentation/Weekly_report_5.md)
 - [Week 6](documentation/Weekly_report_6.md)
-
-  
-## Quick game commands
-- Arrow keys to move
-- Space to enable or stop AI
 
 ## Quick setup
 1. After downloading your clone of the repository install dependencies with:
@@ -53,3 +47,7 @@ poetry run invoke coverage-report
 poetry run invoke pylint
 ```
 
+# User guide
+## Quick game commands
+- Arrow keys to move
+- Space to enable or stop AI
